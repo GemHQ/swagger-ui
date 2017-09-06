@@ -3,8 +3,8 @@
 import { createSelector } from "reselect"
 import { Map } from "immutable"
 
-export default function downloadUrlPlugin (toolbox) {
-  let { fn } = toolbox
+export default function downloadUrlPlugin (system) {
+  let { fn, config } = system
 
   const actions = {
     download: (url)=> ({ errActions, specSelectors, specActions }) => {
@@ -16,7 +16,8 @@ export default function downloadUrlPlugin (toolbox) {
         loadSpec: true,
         credentials: "same-origin",
         headers: {
-          "Accept": "application/json,*/*"
+          "Accept": "application/json,*/*",
+          ...config.headers
         }
       }).then(next,next)
 
