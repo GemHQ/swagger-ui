@@ -58,13 +58,6 @@ export default class BaseLayout extends React.Component {
       <div className='swagger-ui'>
           <div>
             <Errors/>
-            <Row className="information-container">
-              <Col mobile={12}>
-                { info.count() ? (
-                  <Info info={ info } url={ url } host={ host } basePath={ basePath } externalDocs={externalDocs} getComponent={getComponent}/>
-                ) : null }
-              </Col>
-            </Row>
             { schemes && schemes.size || securityDefinitions ? (
               <div className="scheme-container">
                 <Col className="schemes wrapper" mobile={12}>

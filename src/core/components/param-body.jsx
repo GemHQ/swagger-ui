@@ -3,6 +3,9 @@ import PropTypes from "prop-types"
 import { fromJS, List } from "immutable"
 import { getSampleSchema } from "core/utils"
 
+import CodeMirror from 'react-codemirror';
+require('codemirror/mode/javascript/javascript');
+
 const NOOP = Function.prototype
 
 export default class ParamBody extends PureComponent {
@@ -34,7 +37,6 @@ export default class ParamBody extends PureComponent {
       isEditBox: false,
       value: ""
     }
-
   }
 
   componentDidMount() {
@@ -85,7 +87,7 @@ export default class ParamBody extends PureComponent {
     const {consumesValue} = this.props
     const isJson = /json/i.test(consumesValue)
     const isXml = /xml/i.test(consumesValue)
-    const inputValue = isJson ? e.target.value.trim() : e.target.value
+    const inputValue = isJson ? e.trim() : e;
     this.onChange(inputValue, {isXml})
   }
 
@@ -104,7 +106,6 @@ export default class ParamBody extends PureComponent {
 
     const Button = getComponent("Button")
     const TextArea = getComponent("TextArea")
-    const HighlightCode = getComponent("highlightCode")
     const ContentType = getComponent("contentType")
     // for domains where specSelectors not passed
     let parameter = specSelectors ? specSelectors.getParameter(pathMethod, param.get("name")) : param
@@ -113,15 +114,20 @@ export default class ParamBody extends PureComponent {
     let consumes = this.props.consumes && this.props.consumes.size ? this.props.consumes : ParamBody.defaultProp.consumes
 
     let { value, isEditBox } = this.state
+    const codeMirrorOptions = {
+      mode: {
+        name: 'javascript',
+        json: true
+      },
+      lineNumbers: true,
+      theme: 'gem',
+      readOnly: !(isEditBox && isExecute),
+      value
+    };
 
     return (
       <div className="body-param">
-        {
-          isEditBox && isExecute
-            ? <TextArea className={ "body-param__text" + ( errors.count() ? " invalid" : "")} value={value} onChange={ this.handleOnChange }/>
-            : (value && <HighlightCode className="body-param__example"
-                               value={ value }/>)
-        }
+        <CodeMirror onChange={ this.handleOnChange } options={codeMirrorOptions}/>
         <div className="body-param-options">
           {
             !isExecute ? null

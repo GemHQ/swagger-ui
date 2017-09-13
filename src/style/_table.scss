@@ -78,6 +78,10 @@ table
 
                 @include text_body();
             }
+            th
+            {
+                color: #c2c6cc;
+            }
         }
     }
 }

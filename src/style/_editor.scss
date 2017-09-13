@@ -1,0 +1,40 @@
+/*
+Name:   DuoTone-Dark
+Author: by Bram de Haan, adapted from DuoTone themes by Simurai (http://simurai.com/projects/2016/01/01/duotone-themes)
+
+CodeMirror template by Jan T. Sott (https://github.com/idleberg), adapted by Bram de Haan (https://github.com/atelierbram/)
+*/
+
+.cm-s-gem.CodeMirror { background: #424343; color: #6a6a6a; }
+.cm-s-gem div.CodeMirror-selected { background: #545167!important; }
+.cm-s-gem .CodeMirror-gutters { background: #c2c6cc; border-right: 0px; }
+.cm-s-gem .CodeMirror-linenumber { color: #6a6a6a; }
+
+/* begin cursor */
+.cm-s-gem .CodeMirror-cursor {
+  border-left: 1px solid #eeeeee; /* border-left: 1px solid #ffad5c80; */
+  border-right: .5em solid #eeeeee; /* border-right: .5em solid #ffad5c80; */
+  opacity: .5;
+}
+.cm-s-gem .CodeMirror-activeline-background { background: #363342; /* background: #36334280;  */ opacity: .5;}
+.cm-s-gem .cm-fat-cursor .CodeMirror-cursor { background: #ffad5c; /* background: #ffad5c80; */ opacity: .5;}
+/* end cursor */
+
+.cm-s-gem span.cm-atom, .cm-s-gem span.cm-number, .cm-s-gem span.cm-keyword, .cm-s-gem span.cm-variable, .cm-s-gem span.cm-attribute, .cm-s-gem span.cm-quote, .cm-s-gem span.cm-hr, .cm-s-gem span.cm-link { color: #ffffff; }
+
+.cm-s-gem span.cm-property { color: #dddddd; }
+.cm-s-gem span.cm-punctuation, .cm-s-gem span.cm-unit, .cm-s-gem span.cm-negative { color: #e09142; }
+.cm-s-gem span.cm-string { color: #ececec; }
+.cm-s-gem span.cm-operator { color: #ffad5c; }
+.cm-s-gem span.cm-positive { color: #6a51e6; }
+
+.cm-s-gem span.cm-variable-2, .cm-s-gem span.cm-variable-3, .cm-s-gem span.cm-type, .cm-s-gem span.cm-string-2, .cm-s-gem span.cm-url { color: #7a63ee; }
+.cm-s-gem span.cm-def, .cm-s-gem span.cm-tag, .cm-s-gem span.cm-builtin, .cm-s-gem span.cm-qualifier, .cm-s-gem span.cm-header, .cm-s-gem span.cm-em { color: #eeebff; }
+.cm-s-gem span.cm-bracket, .cm-s-gem span.cm-comment { color: #6c6783; }
+
+/* using #f00 red for errors, don't think any of the colorscheme variables will stand out enough, ... maybe by giving it a background-color ... */
+.cm-s-gem span.cm-error, .cm-s-gem span.cm-invalidchar { color: #f00; }
+
+.cm-s-gem span.cm-header { font-weight: normal; }
+.cm-s-gem .CodeMirror-matchingbracket { text-decoration: underline; color: #eeebff !important; } 
+
