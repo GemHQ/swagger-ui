@@ -44,16 +44,21 @@ table
     {
         tr
         {
+            border-bottom: thin solid #ececec;
+
+            &:last-of-type {
+              border-bottom: none;
+            }
+
             td
             {
-                padding: 10px 0 0 0;
+                padding: 10px 0 10px 0;
 
                 vertical-align: top;
 
                 &:first-of-type
                 {
-                    max-width: 20%;
-                    min-width: 6em;
+                    width: 200px;
                     padding: 10px 0;
                 }
             }
@@ -110,7 +115,7 @@ table
 
 .parameter__name
 {
-    font-size: 16px;
+    font-size: 14px;
     font-weight: normal;
 
     @include text_headline();
