@@ -1,6 +1,6 @@
 import React from "react"
 import PropTypes from "prop-types"
-require('codemirror/lib/codemirror.css')
+import 'codemirror/lib/codemirror.css'
 
 export default class StandaloneLayout extends React.Component {
 
