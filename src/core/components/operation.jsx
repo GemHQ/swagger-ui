@@ -233,7 +233,7 @@ export default class Operation extends PureComponent {
                   </div> : null
               }
 
-            <div className={(!tryItOutEnabled || !response || !allowTryItOut) ? "execute-wrapper" : "btn-group"}>
+            <div className={"execute-wrapper btn-group"}>
               { !tryItOutEnabled || !allowTryItOut ? null :
 
                   <Execute

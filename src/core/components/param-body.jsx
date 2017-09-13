@@ -36,10 +36,10 @@ export default class ParamBody extends PureComponent {
     this.state = {
       isEditBox: false,
       value: ""
-    }
+    };
   }
 
-  componentDidMount() {
+  componentWillMount() {
     this.updateValues.call(this, this.props)
   }
 
@@ -91,7 +91,9 @@ export default class ParamBody extends PureComponent {
     this.onChange(inputValue, {isXml})
   }
 
-  toggleIsEditBox = () => this.setState( state => ({isEditBox: !state.isEditBox}))
+  toggleIsEditBox = () => {
+    this.setState( state => ({isEditBox: !state.isEditBox}) );
+  }
 
   render() {
     let {
@@ -121,20 +123,16 @@ export default class ParamBody extends PureComponent {
       },
       lineNumbers: true,
       theme: 'gem',
-      readOnly: !(isEditBox && isExecute),
-      value
+      readOnly: !(isEditBox && isExecute) && 'nocursor',
     };
 
     return (
       <div className="body-param">
-        <CodeMirror onChange={ this.handleOnChange } options={codeMirrorOptions}/>
+        <CodeMirror value={value} onChange={ this.handleOnChange } options={codeMirrorOptions}/>
         <div className="body-param-options">
           {
             !isExecute ? null
                        : <div className="body-param-edit">
-                        <Button className={isEditBox ? "btn cancel body-param__example-edit" : "btn edit body-param__example-edit"}
-                                 onClick={this.toggleIsEditBox}>{ isEditBox ? "Cancel" : "Edit"}
-                         </Button>
                          </div>
           }
           <label htmlFor="">

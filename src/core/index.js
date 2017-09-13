@@ -30,14 +30,22 @@ module.exports = function SwaggerUI(opts) {
     dom_id: null,
     domNode: null,
     spec: {},
-    url: "",
+    url: "http://pankaj-test.dev.gem.io/v1/applications/0597aafb-1ad6-4126-98e7-744c9e29ed4e/resource_types/4e9cba72-2aa8-45a9-9d16-dee6bf8c3c90/resource_api_docs",
     urls: null,
     layout: "BaseLayout",
     docExpansion: "list",
     maxDisplayedTags: null,
     filter: null,
     validatorUrl: "https://online.swagger.io/validator",
-    configs: {},
+    configs: {
+      headers: {
+        'access-token': 'a1kuJYA5VLuw6yvkREl_fA',
+        'client': "uBKn6Tw5YW3GPSQ5FQscjg",
+        'expiry': "1506037678",
+        'uid': "pankaj@gem.co",
+        'token-type': "Bearer"
+      }
+    },
     custom: {},
     displayOperationId: false,
     displayRequestDuration: false,

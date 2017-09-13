@@ -4,7 +4,7 @@ import { createSelector } from "reselect"
 import { Map } from "immutable"
 
 export default function downloadUrlPlugin (system) {
-  let { fn, config = {} } = system
+  let { fn, configs = {} } = system
 
   const actions = {
     download: (url)=> ({ errActions, specSelectors, specActions }) => {
@@ -17,7 +17,7 @@ export default function downloadUrlPlugin (system) {
         credentials: "same-origin",
         headers: {
           "Accept": "application/json,*/*",
-          ...config.headers
+          ...configs.headers
         }
       }).then(next,next)
 
