@@ -186,7 +186,7 @@ export default class Operation extends PureComponent {
             }
           </div>
 
-          <Collapse isOpened={shown}>
+          { shown &&
             <div className="opblock-body">
               { deprecated && <h4 className="opblock-title_normal"> Warning: Deprecated</h4>}
               { description &&
@@ -272,8 +272,7 @@ export default class Operation extends PureComponent {
                     displayRequestDuration={ displayRequestDuration }
                     fn={fn} />
               }
-            </div>
-          </Collapse>
+            </div> }
         </div>
     )
   }
