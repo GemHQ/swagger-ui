@@ -47,6 +47,10 @@ export default class ParamBody extends PureComponent {
     this.updateValues.call(this, nextProps)
   }
 
+  componentDidMount () {
+    this.editor.codeMirror.setSize(768);
+  }
+
   shouldComponentUpdate(nextProps, nextState) {
     if (this.state.isEditBox) {
       return false;

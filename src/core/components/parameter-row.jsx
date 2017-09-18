@@ -92,7 +92,7 @@ export default class ParameterRow extends Component {
 
     return (
       <tr>
-        <td className="col parameters-col_name">
+        <td className="col parameters-col_name" style={{ width: '20%' }}>
           <div className={required ? "parameter__name required" : "parameter__name"}>
             { param.get("name") }
             { !required ? null : <span style={{color: "red"}}>&nbsp;*</span> }
@@ -104,7 +104,7 @@ export default class ParameterRow extends Component {
           <div className="parameter__in">({ param.get("in") })</div>
         </td>
 
-        <td className="col parameters-col_description">
+        <td className="col parameters-col_description" style={{ width: '80%' }}>
           <Markdown source={ param.get("description") }/>
           {(isFormData && !isFormDataSupported) && <div>Error: your browser does not support FormData</div>}
 
