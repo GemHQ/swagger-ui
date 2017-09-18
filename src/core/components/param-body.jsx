@@ -47,6 +47,14 @@ export default class ParamBody extends PureComponent {
     this.updateValues.call(this, nextProps)
   }
 
+  shouldComponentUpdate(nextProps, nextState) {
+    if (this.state.isEditBox) {
+      return false;
+    } else {
+      return true;
+    }
+  }
+
   updateValues = (props) => {
     let { specSelectors, pathMethod, param, isExecute, consumesValue="" } = props
     let parameter = specSelectors ? specSelectors.getParameter(pathMethod, param.get("name")) : {}
@@ -116,19 +124,24 @@ export default class ParamBody extends PureComponent {
     let consumes = this.props.consumes && this.props.consumes.size ? this.props.consumes : ParamBody.defaultProp.consumes
 
     let { value, isEditBox } = this.state
-    const codeMirrorOptions = {
-      mode: {
-        name: 'javascript',
-        json: true
+    let codeMirrorOptions = {
+      onChange: this.handleOnChange,
+      options: {
+        mode: {
+          name: 'javascript',
+          json: true
+        },
+        lineNumbers: true,
+        theme: 'gem',
+        readOnly: !(isEditBox && isExecute) && 'nocursor',
       },
-      lineNumbers: true,
-      theme: 'gem',
-      readOnly: !(isEditBox && isExecute) && 'nocursor',
+      value
     };
 
     return (
       <div className="body-param">
-        <CodeMirror value={value} onChange={ this.handleOnChange } options={codeMirrorOptions}/>
+        <CodeMirror ref={(c) => this.editor = c}
+          {...codeMirrorOptions} />
         <div className="body-param-options">
           {
             !isExecute ? null

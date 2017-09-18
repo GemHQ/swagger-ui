@@ -30,7 +30,7 @@ module.exports = function SwaggerUI(opts) {
     dom_id: null,
     domNode: null,
     spec: {},
-    url: "http://pankaj-test.dev.gem.io/v1/applications/0597aafb-1ad6-4126-98e7-744c9e29ed4e/resource_types/4e9cba72-2aa8-45a9-9d16-dee6bf8c3c90/resource_api_docs",
+    url: "http://api.prod.gem.io/v1/applications/f94ec07b-a1cf-4205-87a0-68e631f1917c/resource_api_docs",
     urls: null,
     layout: "BaseLayout",
     docExpansion: "list",
@@ -39,8 +39,8 @@ module.exports = function SwaggerUI(opts) {
     validatorUrl: "https://online.swagger.io/validator",
     configs: {
       headers: {
-        'access-token': 'a1kuJYA5VLuw6yvkREl_fA',
-        'client': "uBKn6Tw5YW3GPSQ5FQscjg",
+        'access-token': 'NY6o7jM6kltrK56Et_NcFA',
+        'client': "lR5ebZo8zXcF0dCERWPMgA",
         'expiry': "1506037678",
         'uid': "pankaj@gem.co",
         'token-type': "Bearer"
