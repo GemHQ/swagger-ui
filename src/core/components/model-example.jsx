@@ -41,10 +41,10 @@ export default class ModelExample extends React.Component {
       </ul>
       <div>
         {
-          (isExecute || this.state.activeTab === "example") && example
+          (this.state.activeTab === "example") && example
         }
         {
-          !isExecute && this.state.activeTab === "model" && <ModelWrapper schema={ schema }
+          (this.state.activeTab === "model") && <ModelWrapper schema={ schema }
                                                      getComponent={ getComponent }
                                                      specSelectors={ specSelectors }
                                                      expandDepth={ 1 } />
