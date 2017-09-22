@@ -2,6 +2,7 @@ import React from "react"
 import PropTypes from "prop-types"
 import { fromJS, Seq } from "immutable"
 import { getSampleSchema } from "core/utils"
+import ReactJson from 'react-json-view';
 
 const getExampleComponent = ( sampleResponse, examples, HighlightCode ) => {
   if ( examples && examples.size ) {
@@ -9,7 +10,11 @@ const getExampleComponent = ( sampleResponse, examples, HighlightCode ) => {
       let exampleValue = example
       if ( example.toJS ) {
         try {
-          exampleValue = JSON.stringify(example.toJS(), null, 2)
+          exampleValue = example.toJS()
+          return (<div key={ key }>
+            <h5>{ key }</h5>
+            <ReactJson className="example" value={ exampleValue } />
+          </div>)
         }
         catch(e) {
           exampleValue = String(example)
@@ -24,7 +29,7 @@ const getExampleComponent = ( sampleResponse, examples, HighlightCode ) => {
   }
 
   if ( sampleResponse ) { return <div>
-      <HighlightCode className="example" value={ sampleResponse } />
+      <ReactJson className="example" src={ JSON.parse(sampleResponse) } />
     </div>
   }
   return null

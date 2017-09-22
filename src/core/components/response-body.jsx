@@ -2,6 +2,7 @@ import React from "react"
 import PropTypes from "prop-types"
 import { formatXml } from "core/utils"
 import lowerCase from "lodash/lowerCase"
+import ReactJson from 'react-json-view';
 
 export default class ResponseBody extends React.Component {
 
@@ -22,12 +23,12 @@ export default class ResponseBody extends React.Component {
     // JSON
     if (/json/i.test(contentType)) {
       try {
-        body = JSON.stringify(JSON.parse(content), null, "  ")
+        body = JSON.parse(content)
       } catch (error) {
         body = "can't parse JSON.  Raw result:\n\n" + content
       }
 
-      bodyEl = <HighlightCode value={ body } />
+      bodyEl = <ReactJson src={ body } />
 
       // XML
     } else if (/xml/i.test(contentType)) {
