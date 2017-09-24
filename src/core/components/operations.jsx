@@ -166,7 +166,10 @@ export default class Operations extends React.Component {
             }).toArray()
           }
 
-          { taggedOps.size < 1 ? <h3> No operations defined in spec! </h3> : null }
+          { taggedOps.size < 1 ? <div>
+            <h3 style={{ textAlign: 'center', marginTop: '30vh' }}> No Resources Types Available.</h3>
+            <p style={{ textAlign: 'center' }}>Click <a href="/resources/libraries">here</a> to add resource types</p>
+          </div> : null }
         </div>
     )
   }
