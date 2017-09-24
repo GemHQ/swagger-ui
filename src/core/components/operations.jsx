@@ -31,6 +31,7 @@ export default class Operations extends React.Component {
     } = this.props
 
     let taggedOps = specSelectors.taggedOperations()
+    let spec = specSelectors.spec()
 
     const Operation = getComponent("operation")
     const Collapse = getComponent("Collapse")

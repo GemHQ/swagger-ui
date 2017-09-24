@@ -68,7 +68,6 @@ export const parseToJson = (str) => ({specActions, specSelectors, errActions}) =
     json = YAML.safeLoad(str)
   } catch(e) {
     // TODO: push error to state
-    console.error(e)
     return errActions.newSpecErr({
       source: "parser",
       level: "error",
@@ -102,7 +101,6 @@ export const resolveSpec = (json, url) => ({specActions, specSelectors, errActio
       if(errors.length > 0) {
         let preparedErrors = errors
           .map(err => {
-            console.error(err)
             err.line = err.fullPath ? getLineNumberForPath(specStr, err.fullPath) : null
             err.path = err.fullPath ? err.fullPath.join(".") : null
             err.level = "error"
