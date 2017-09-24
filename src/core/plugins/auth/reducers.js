@@ -61,7 +61,8 @@ export default {
   },
 
   [CONFIGURE_AUTH]: (state, { payload } ) =>{
-    const auth = Map(JSON.parse(localStorage.getItem('$$swaggerAuthorization')));
+    const auth = Map(payload);
+    console.log(payload);
     return state.set("configs", payload).set("authorized", auth)
   }
 }
