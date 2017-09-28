@@ -62,7 +62,7 @@ export default class BaseLayout extends React.Component {
 
     if(isSpecEmpty) {
       return (
-        <h3 style={{ textAlign: 'center', marginTop: '30vh' }}> Loading... </h3>
+        <div/>
       );
     }
 

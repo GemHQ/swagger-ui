@@ -168,7 +168,7 @@ export default class Operations extends React.Component {
             }).toArray()
           }
 
-          { loading ? <div>
+          { loading && taggedOps.size < 1 ? <div>
             <h3 style={{ textAlign: 'center', marginTop: '30vh' }}> Loading </h3>
           </div> : null }
           { !loading && taggedOps.size < 1 ? <div>
