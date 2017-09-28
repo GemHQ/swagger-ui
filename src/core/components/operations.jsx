@@ -1,5 +1,6 @@
 import React from "react"
 import PropTypes from "prop-types"
+import { Map } from 'immutable'
 import { helpers } from "swagger-client"
 
 const { opId } = helpers
@@ -32,7 +33,7 @@ export default class Operations extends React.Component {
 
     let taggedOps = specSelectors.taggedOperations()
     let spec = specSelectors.spec()
-    let loading = specSelectors.specJson().size && !taggedOps.size;
+    let loading = specSelectors.specJson().get('paths', Map()).size;
 
     const Operation = getComponent("operation")
     const Collapse = getComponent("Collapse")
@@ -168,7 +169,7 @@ export default class Operations extends React.Component {
           }
 
           { loading ? <div>
-            <h3 style={{ textAlign: 'center', marginTop: '30vh' }}> Loading... </h3>
+            <h3 style={{ textAlign: 'center', marginTop: '30vh' }}> Loading </h3>
           </div> : null }
           { !loading && taggedOps.size < 1 ? <div>
             <h3 style={{ textAlign: 'center', marginTop: '30vh' }}> No Resources Types Available.</h3>

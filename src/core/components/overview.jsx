@@ -1,5 +1,6 @@
 import React from "react"
 import PropTypes from "prop-types"
+import { Map } from 'immutable'
 import { Link } from "core/components/layout-utils"
 
 export default class Overview extends React.Component {
@@ -21,7 +22,7 @@ export default class Overview extends React.Component {
   render() {
     let { specSelectors, layoutSelectors, layoutActions, getComponent } = this.props
     let taggedOps = specSelectors.taggedOperations()
-    let loading = specSelectors.specJson().size && !taggedOps.size;
+    let loading = specSelectors.specJson().get('paths', Map()).size;
 
     const Collapse = getComponent("Collapse")
 
