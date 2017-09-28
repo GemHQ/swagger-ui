@@ -21,6 +21,7 @@ export default class Overview extends React.Component {
   render() {
     let { specSelectors, layoutSelectors, layoutActions, getComponent } = this.props
     let taggedOps = specSelectors.taggedOperations()
+    let loading = specSelectors.specJson().size && !taggedOps.size;
 
     const Collapse = getComponent("Collapse")
 
@@ -67,7 +68,13 @@ export default class Overview extends React.Component {
             }).toArray()
           }
 
-          { taggedOps.size < 1 && <h3> No operations defined in spec! </h3> }
+          { loading ? <div>
+            <h3 style={{ textAlign: 'center', marginTop: '30vh' }}> Loading... </h3>
+          </div> : null }
+          { !loading && taggedOps.size < 1 ? <div>
+            <h3 style={{ textAlign: 'center', marginTop: '30vh' }}> No Resources Types Available.</h3>
+            <p style={{ textAlign: 'center' }}>Click <a href="/resources/libraries">here</a> to add resource types</p>
+          </div> : null }
         </div>
     )
   }

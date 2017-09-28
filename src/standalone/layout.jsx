@@ -31,7 +31,7 @@ export default class StandaloneLayout extends React.Component {
       <Container className='swagger-ui'>
         { loadingStatus === "loading" &&
           <div className="info">
-            <h4 className="title">Loading...</h4>
+            <h3 style={{ textAlign: 'center', marginTop: '30vh' }}> Loading... </h3>
           </div>
         }
         { loadingStatus === "failed" &&
