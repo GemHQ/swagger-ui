@@ -230,15 +230,17 @@
     .opblock-summary-method
     {
         font-size: 10px;
+        line-height: 12px;
 
         width: 85px;
-        padding: 4px 32px;
+        height: 25px;
+        padding: 5px;
 
         text-align: center;
 
         border-radius: 15px;
         background: #000;
-        box-sizing: content-box;
+        box-sizing: border-box;
 
         @include text_headline(#fff);
     }
@@ -247,14 +249,14 @@
     .opblock-summary-operation-id,
     .opblock-summary-path__deprecated
     {
-        font-size: 16px;
+        font-size: 14px;
+        line-height: 17px;
+        flex: 1;
 
         display: flex;
         align-items: center;
 
         padding: 0 10px;
-
-        @include text_code();
 
         .view-line-link
         {
@@ -290,7 +292,7 @@
 
     .opblock-summary-description
     {
-        font-size: 13px;
+        font-size: 14px;
 
         flex: 1;
 

@@ -58,7 +58,10 @@ export default class BaseLayout extends React.Component {
 
     const Schemes = getComponent("schemes")
 
-    const isSpecEmpty = !specSelectors.specStr()
+    let taggedOps = specSelectors.taggedOperations()
+    let spec = specSelectors.specStr()
+
+    const isSpecEmpty = (!spec || (spec && taggedOps.size === 0))
 
     if(isSpecEmpty) {
       return (
