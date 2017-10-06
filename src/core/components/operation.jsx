@@ -189,10 +189,10 @@ export default class Operation extends PureComponent {
           { shown &&
             <div className="opblock-body">
               { deprecated && <h4 className="opblock-title_normal"> Warning: Deprecated</h4>}
-              { description &&
+              { (description || summary) &&
                 <div className="opblock-description-wrapper">
                   <div className="opblock-description">
-                    <Markdown source={ description } />
+                    <Markdown source={ description || summary } />
                   </div>
                 </div>
               }
