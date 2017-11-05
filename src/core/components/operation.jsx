@@ -194,7 +194,7 @@ export default class Operation extends PureComponent {
                   <div className="opblock-description">
                     <Markdown source={ description || summary } />
                     <br/>
-                    <strong>Path:</strong><pre>{path}</pre>
+                    <strong>Relative Path:</strong><pre>{path}</pre>
                   </div>
                 </div>
               }
