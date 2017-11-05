@@ -1,3 +1,17 @@
+.swagger-ui
+{
+  .swagger-ui-header,
+  {
+    h1, p {
+      text-align: center;
+      line-height: 1.5;
+    }
+    small {
+      text-align: center;
+      font-size: 10px;
+    }
+  }
+}
 .topbar
 {
     padding: 8px 30px;

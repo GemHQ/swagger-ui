@@ -22,6 +22,7 @@ export default class BaseLayout extends React.Component {
 
   render() {
     let {
+      authSelectors,
       specSelectors,
       specActions,
       getComponent,
@@ -32,6 +33,7 @@ export default class BaseLayout extends React.Component {
 
     let info = specSelectors.info()
     let url = specSelectors.url()
+    let baseUrl = specSelectors.baseUrl()
     let basePath = specSelectors.basePath()
     let host = specSelectors.host()
     let securityDefinitions = specSelectors.securityDefinitions()
@@ -69,10 +71,35 @@ export default class BaseLayout extends React.Component {
       );
     }
 
-    return (
+    console.log(authSelectors.getConfigs());
+    console.log(authSelectors.definitionsToAuthorize().toJS());
+    const config = authSelectors.getConfigs();
+    const securities = authSelectors
+      .definitionsToAuthorize()
+      .toJS()
 
+    return (
       <div className='swagger-ui'>
           <div>
+            <div className='swagger-ui-header'>
+              <h1>API Documentation</h1>
+              <p>
+                <strong>Base URL</strong>: { schemes && schemes.size ? schemes.first() : 'http' }://{baseUrl}{basePath} <br/>
+                { securities.map(
+                  (s) => {
+                    const securityName = Object.keys(s)[0];
+                    return [
+                      <strong>{s[securityName].name}</strong>, `: ${config[securityName]}`,
+                      <br/>
+                    ]
+                  }
+                ) }
+              </p>
+              {/* !!securities.length && <small>
+                * These authorization values are the ones that swagger-ui is currently using to communicate with GemOS.
+                <br/>To change it, please use the 'Authorize' button. You can also generate a new set of keys from the Settings page.
+               </small> */}
+            </div>
             { schemes && schemes.size || securityDefinitions ? (
               <div className="scheme-container">
                 <Col className="schemes wrapper" mobile={12}>

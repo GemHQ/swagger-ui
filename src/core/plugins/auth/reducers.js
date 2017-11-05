@@ -62,7 +62,6 @@ export default {
 
   [CONFIGURE_AUTH]: (state, { payload } ) =>{
     const auth = Map(payload);
-    console.log(payload);
     return state.set("configs", payload).set("authorized", auth)
   }
 }

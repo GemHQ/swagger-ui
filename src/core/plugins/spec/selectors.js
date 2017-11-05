@@ -148,6 +148,11 @@ export const basePath = createSelector(
     spec => spec.get("basePath")
 )
 
+export const baseUrl = createSelector(
+    spec,
+    spec => spec.get("baseUrl")
+)
+
 export const host = createSelector(
     spec,
     spec => spec.get("host")
