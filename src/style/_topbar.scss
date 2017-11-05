@@ -2,12 +2,12 @@
 {
   .swagger-ui-header,
   {
+    text-align: center !important;
+
     h1, p {
-      text-align: center;
       line-height: 1.5;
     }
     small {
-      text-align: center;
       font-size: 10px;
     }
     .description {
