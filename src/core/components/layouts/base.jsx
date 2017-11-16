@@ -55,6 +55,7 @@ export default class BaseLayout extends React.Component {
     let filter = layoutSelectors.currentFilter()
 
     let inputStyle = {}
+
     if(isFailed) inputStyle.color = "red"
     if(isLoading) inputStyle.color = "#aaa"
 
@@ -71,8 +72,6 @@ export default class BaseLayout extends React.Component {
       );
     }
 
-    console.log(authSelectors.getConfigs());
-    console.log(authSelectors.definitionsToAuthorize().toJS());
     const config = authSelectors.getConfigs();
     const securities = authSelectors
       .definitionsToAuthorize()
