@@ -55,7 +55,6 @@ export default class BaseLayout extends React.Component {
     let filter = layoutSelectors.currentFilter()
 
     let inputStyle = {}
-
     if(isFailed) inputStyle.color = "red"
     if(isLoading) inputStyle.color = "#aaa"
 
@@ -79,78 +78,36 @@ export default class BaseLayout extends React.Component {
 
     return (
       <div className='swagger-ui'>
-          <div>
-            <div className='swagger-ui-header'>
-              <h1>API Documentation</h1>
-              <p className={'description'}>
-                These authorization values are the ones that swagger-ui is currently using to communicate with GemOS.<br/>
-                To change it, please use the ‘Authorize’ button. You can also generate a new set of keys from the Settings page.
-              </p>
-              <p>
-                <strong>Base URL</strong>: { schemes && schemes.size ? schemes.first() : 'http' }://{baseUrl}{basePath} <br/>
-                { securities.map(
-                  (s) => {
-                    const securityName = Object.keys(s)[0];
-                    return [
-                      <strong>{s[securityName].name}</strong>, `: ${config[securityName]}`,
-                      <br/>
-                    ]
-                  }
-                ) }
-              </p>
-              {/* !!securities.length && <small>
-                * These authorization values are the ones that swagger-ui is currently using to communicate with GemOS.
-                <br/>To change it, please use the 'Authorize' button. You can also generate a new set of keys from the Settings page.
-               </small> */}
-            </div>
-            { schemes && schemes.size || securityDefinitions ? (
-              <div className="scheme-container">
-                <Col className="schemes wrapper" mobile={12}>
-                  { schemes && schemes.size ? (
-                    <Schemes
-                      currentScheme={specSelectors.operationScheme()}
-                      schemes={ schemes }
-                      specActions={ specActions } />
-                  ) : null }
-
-                  { securityDefinitions ? (
-                    <AuthorizeBtn />
-                  ) : null }
-                </Col>
-              </div>
-            ) : null }
-
-            { servers && servers.size ? (
-              <div className="server-container">
-                <Col className="servers wrapper" mobile={12}>
-                  <Servers
-                    servers={servers}
-                    currentServer={oas3Selectors.selectedServer()}
-                    setSelectedServer={oas3Actions.setSelectedServer}
-                    setServerVariableValue={oas3Actions.setServerVariableValue}
-                    getServerVariable={oas3Selectors.serverVariableValue}
-                    getEffectiveServerValue={oas3Selectors.serverEffectiveValue}
-                    />
-                </Col>
-              </div>
-
-            ) : null}
-
-            {
-              filter === null || filter === false ? null :
-                <div className="filter-container">
-                  <Col className="filter wrapper" mobile={12}>
-                    <input className="operation-filter-input" placeholder="Filter by tag" type="text" onChange={this.onFilterChange} value={filter === true || filter === "true" ? "" : filter} disabled={isLoading} style={inputStyle} />
-                  </Col>
-                </div>
-            }
-
-            <Row>
-              <Col mobile={12} desktop={12} >
-                <Operations/>
-              </Col>
-            </Row>
+        <div className='swagger-ui-header'>
+          <h1>API Documentation</h1>
+            <p className={'description'}>
+              These authorization values are the ones that swagger-ui is currently using to communicate with GemOS.<br/>
+              To change it, please use the ‘Authorize’ button. You can also generate a new set of keys from the Settings page.
+            </p>
+            <p>
+              <strong>Base URL</strong>: { schemes && schemes.size ? schemes.first() : 'http' }://{baseUrl}{basePath} <br/>
+              { securities.map(
+                (s) => {
+                  const securityName = Object.keys(s)[0];
+                  return [
+                    <strong>{s[securityName].name}</strong>, `: ${config[securityName]}`,
+                    <br/>
+                  ]
+                }
+              ) }
+            </p>
+            {/* !!securities.length && <small>
+              * These authorization values are the ones that swagger-ui is currently using to communicate with GemOS.
+              <br/>To change it, please use the 'Authorize' button. You can also generate a new set of keys from the Settings page.
+             </small> */}
           </div>
+
+
+          <Row>
+            <Col mobile={12} desktop={12} >
+              <Operations/>
+            </Col>
+          </Row>
         </div>
       )
   }

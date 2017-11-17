@@ -2,10 +2,10 @@
 {
   .swagger-ui-header
   {
+    text-align: center !important;
 
     h1, p {
       line-height: 1.5;
-      text-align: center !important;
     }
     small {
       font-size: 10px;
@@ -46,6 +46,7 @@
 {
     display: flex;
     align-items: center;
+    background: #fafbfc;
 
     padding: 15px 20px 15px 10px;
 
