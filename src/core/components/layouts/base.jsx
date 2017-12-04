@@ -86,15 +86,6 @@ export default class BaseLayout extends React.Component {
             </p>
             <p>
               <strong>Base URL</strong>: { schemes && schemes.size ? schemes.first() : 'http' }://{baseUrl}{basePath} <br/>
-              { securities.map(
-                (s) => {
-                  const securityName = Object.keys(s)[0];
-                  return [
-                    <strong>{s[securityName].name}</strong>, `: ${config[securityName]}`,
-                    <br/>
-                  ]
-                }
-              ) }
             </p>
             {/* !!securities.length && <small>
               * These authorization values are the ones that swagger-ui is currently using to communicate with GemOS.
