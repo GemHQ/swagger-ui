@@ -87,6 +87,7 @@ export default class BaseLayout extends React.Component {
             <p>
               <strong>Base URL</strong>: { schemes && schemes.size ? schemes.first() : 'http' }://{baseUrl}{basePath} <br/>
             </p>
+            <br/>
             {/* !!securities.length && <small>
               * These authorization values are the ones that swagger-ui is currently using to communicate with GemOS.
               <br/>To change it, please use the 'Authorize' button. You can also generate a new set of keys from the Settings page.
